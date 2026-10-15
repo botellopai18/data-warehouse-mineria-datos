@@ -1,0 +1,12 @@
+object_name                                                                                          expected_rows        actual_rows         
+---------------------------------------------------------------------------------------------------- -------------------- --------------------
+gold.dim_customers                                                                                                  18484                18484
+gold.dim_products                                                                                                     295                  295
+gold.fact_sales                                                                                                     60398                60398
+silver.crm_cust_info                                                                                                18484                18484
+silver.crm_prd_info                                                                                                   397                  397
+silver.crm_sales_details                                                                                            60398                60398
+silver.erp_cust_az12                                                                                                18484                18484
+silver.erp_loc_a101                                                                                                 18484                18484
+silver.erp_px_cat_g1v2                                                                                                 37                   37
+PASS Silver/Gold: counts, deduplication, normalization, amounts, keys and integration.

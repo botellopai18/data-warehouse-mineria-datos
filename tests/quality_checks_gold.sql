@@ -49,3 +49,5 @@ ON c.customer_key = f.customer_key
 LEFT JOIN gold.dim_products p
 ON p.product_key = f.product_key
 WHERE p.product_key IS NULL OR c.customer_key IS NULL
+-- Avoid re-evaluating ROW_NUMBER views per sale in a nested-loop plan.
+OPTION (HASH JOIN);

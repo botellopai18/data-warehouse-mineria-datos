@@ -1,0 +1,15 @@
+metric                        bronze_value silver_value
+----------------------------- ------------ ------------
+customer_rows                        18494        18484
+null_customer_ids                        4            0
+excess_duplicate_customer_ids            6            0
+names_with_outer_spaces                 29            0
+invalid_sales_arithmetic                35            0
+future_birthdates                       16            0
+retained_condition     rows_count 
+---------------------- -----------
+unknown_order_dates             19
+birthdates_before_1924          15
+sales_rows           total_sales          total_quantity      
+-------------------- -------------------- --------------------
+               60398             29356250                60423

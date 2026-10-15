@@ -40,6 +40,8 @@ flowchart LR
     S1 & S4 & S5 --> G1
     S2 & S6 --> G2
     S3 --> G3
+    G1 --> G3
+    G2 --> G3
 ```
 
 | | Bronze | Silver | Gold |
@@ -72,3 +74,15 @@ flowchart LR
     C2 -- cst_key = cid --> E2
     C3 -- cat_id = id --> E3
 ```
+
+## Orden de ejecución y control
+
+`run_all.sql`: base y esquemas → DDL Bronze → procedimiento/carga Bronze → validación
+CSV/Bronze → DDL Silver → procedimiento/carga Silver → vistas Gold → aceptación.
+`reload.sql` recorre las cargas y validaciones sin eliminar objetos.
+
+Cada procedimiento confirma las seis tablas de su capa en una transacción; ante un error
+hace rollback y `THROW`. La atomicidad es **por capa**, no una transacción global de todo el
+warehouse. Gold integra las dimensiones y la fuente de ventas de Silver en cada consulta.
+La recarga se valida comparando las 15 salidas completas, excluyendo únicamente las fechas
+técnicas de carga; las pruebas de rollback sí comparan esas fechas.

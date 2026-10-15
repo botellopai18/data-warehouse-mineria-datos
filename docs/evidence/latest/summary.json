@@ -1,0 +1,266 @@
+{
+  "status": "passed",
+  "started_at_utc": "2026-10-15T23:29:51.522427+00:00",
+  "image": "mcr.microsoft.com/mssql/server@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+  "steps": [
+    {
+      "name": "01_initial_load",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "02_before_after",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "03_tutorial_silver_diagnostics",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "04_tutorial_gold_checks",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "05_reload_and_rollback",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "06_existing_database_guard",
+      "passed": true,
+      "exit_code": 1,
+      "expected_error": "DataWarehouse already exists"
+    },
+    {
+      "name": "07_empty_table_rejected",
+      "passed": true,
+      "exit_code": 1,
+      "expected_error": "FAIL warehouse: missing"
+    },
+    {
+      "name": "08_final_acceptance",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    },
+    {
+      "name": "09_documented_reload",
+      "passed": true,
+      "exit_code": 0,
+      "expected_error": null
+    }
+  ],
+  "sources": [
+    {
+      "path": "datasets/source_crm/cust_info.csv",
+      "sha256": "5e00eca4351886386f6dd01beea91cb17ff081b97b9a02d295b84505448c8040",
+      "columns": [
+        "cst_id",
+        "cst_key",
+        "cst_firstname",
+        "cst_lastname",
+        "cst_marital_status",
+        "cst_gndr",
+        "cst_create_date"
+      ],
+      "rows": 18494
+    },
+    {
+      "path": "datasets/source_crm/prd_info.csv",
+      "sha256": "3db1d644b424aa42599c5a00a8b1297b7b099367c180a63b141f91efac0de45b",
+      "columns": [
+        "prd_id",
+        "prd_key",
+        "prd_nm",
+        "prd_cost",
+        "prd_line",
+        "prd_start_dt",
+        "prd_end_dt"
+      ],
+      "rows": 397
+    },
+    {
+      "path": "datasets/source_crm/sales_details.csv",
+      "sha256": "0a1e565ae2e8accec217819226d7b71104cc6075590172ed855617a8930a4369",
+      "columns": [
+        "sls_ord_num",
+        "sls_prd_key",
+        "sls_cust_id",
+        "sls_order_dt",
+        "sls_ship_dt",
+        "sls_due_dt",
+        "sls_sales",
+        "sls_quantity",
+        "sls_price"
+      ],
+      "rows": 60398
+    },
+    {
+      "path": "datasets/source_erp/CUST_AZ12.csv",
+      "sha256": "31b697a6a6022085e2f0b1a4d8fe55faae57a54a2d0c8ff91534253b8f3e64a0",
+      "columns": [
+        "CID",
+        "BDATE",
+        "GEN"
+      ],
+      "rows": 18484
+    },
+    {
+      "path": "datasets/source_erp/LOC_A101.csv",
+      "sha256": "d46239d31bfa3a78e8a6cc8ee97a51e914b2db2db460bfb79a3aeadaf8e028c0",
+      "columns": [
+        "CID",
+        "CNTRY"
+      ],
+      "rows": 18484
+    },
+    {
+      "path": "datasets/source_erp/PX_CAT_G1V2.csv",
+      "sha256": "ef8048319a2cc23907fc6caf215d31cca5e0bf908590fd6bd7dfa81b48ac9743",
+      "columns": [
+        "ID",
+        "CAT",
+        "SUBCAT",
+        "MAINTENANCE"
+      ],
+      "rows": 37
+    }
+  ],
+  "staged_sources": [
+    {
+      "path": "datasets/source_crm/cust_info.csv",
+      "sha256": "5e00eca4351886386f6dd01beea91cb17ff081b97b9a02d295b84505448c8040",
+      "columns": [
+        "cst_id",
+        "cst_key",
+        "cst_firstname",
+        "cst_lastname",
+        "cst_marital_status",
+        "cst_gndr",
+        "cst_create_date"
+      ],
+      "rows": 18494,
+      "appended_final_crlf": true,
+      "staged_sha256": "bfe0034e64d21b495a33ee04d7554378e524665973f020ff58945f50cd752bc9"
+    },
+    {
+      "path": "datasets/source_crm/prd_info.csv",
+      "sha256": "3db1d644b424aa42599c5a00a8b1297b7b099367c180a63b141f91efac0de45b",
+      "columns": [
+        "prd_id",
+        "prd_key",
+        "prd_nm",
+        "prd_cost",
+        "prd_line",
+        "prd_start_dt",
+        "prd_end_dt"
+      ],
+      "rows": 397,
+      "appended_final_crlf": false,
+      "staged_sha256": "3db1d644b424aa42599c5a00a8b1297b7b099367c180a63b141f91efac0de45b"
+    },
+    {
+      "path": "datasets/source_crm/sales_details.csv",
+      "sha256": "0a1e565ae2e8accec217819226d7b71104cc6075590172ed855617a8930a4369",
+      "columns": [
+        "sls_ord_num",
+        "sls_prd_key",
+        "sls_cust_id",
+        "sls_order_dt",
+        "sls_ship_dt",
+        "sls_due_dt",
+        "sls_sales",
+        "sls_quantity",
+        "sls_price"
+      ],
+      "rows": 60398,
+      "appended_final_crlf": false,
+      "staged_sha256": "0a1e565ae2e8accec217819226d7b71104cc6075590172ed855617a8930a4369"
+    },
+    {
+      "path": "datasets/source_erp/CUST_AZ12.csv",
+      "sha256": "31b697a6a6022085e2f0b1a4d8fe55faae57a54a2d0c8ff91534253b8f3e64a0",
+      "columns": [
+        "CID",
+        "BDATE",
+        "GEN"
+      ],
+      "rows": 18484,
+      "appended_final_crlf": true,
+      "staged_sha256": "096fbf5a99b45d9a7549906941857c7b66405b7b8a522b02347b75fd11fdb484"
+    },
+    {
+      "path": "datasets/source_erp/LOC_A101.csv",
+      "sha256": "d46239d31bfa3a78e8a6cc8ee97a51e914b2db2db460bfb79a3aeadaf8e028c0",
+      "columns": [
+        "CID",
+        "CNTRY"
+      ],
+      "rows": 18484,
+      "appended_final_crlf": false,
+      "staged_sha256": "d46239d31bfa3a78e8a6cc8ee97a51e914b2db2db460bfb79a3aeadaf8e028c0"
+    },
+    {
+      "path": "datasets/source_erp/PX_CAT_G1V2.csv",
+      "sha256": "ef8048319a2cc23907fc6caf215d31cca5e0bf908590fd6bd7dfa81b48ac9743",
+      "columns": [
+        "ID",
+        "CAT",
+        "SUBCAT",
+        "MAINTENANCE"
+      ],
+      "rows": 37,
+      "appended_final_crlf": true,
+      "staged_sha256": "66e4a788f1fb2292ebd76535947133da70d69a2bd4deea6103026c58629f5f16"
+    }
+  ],
+  "reviewed_files_sha256": {
+    "docs/data_architecture.md": "a408169b47648d70a5bdc28bf8e69f0895934adf14f6c5f166ed3e115d229ea2",
+    "docs/data_catalog.md": "11c4cfde39fe8bda49c449b54a1006983628168c586b6dd7b78bfeffbe7280b4",
+    "docs/data_model.md": "651ad09631e230b4d7d3464fc45a65f5cfe56499c11e8a67c7a9268ef24dec97",
+    "docs/naming_conventions.md": "76eaa8106f9b24c9a40eec6e8465524d78aa63e8108100f0e0711c6c9629f47c",
+    "docs/replication_steps.md": "cd44e034b6e7c3950131ea01070e8b9b3f06f45f517df91df8ab17eca182362f",
+    "docs/source_analysis.md": "418926b14771ba939fe65a714fa42940623f7185ff5cd586e0862f8f3c028b7c",
+    "scripts/bronze/ddl_bronze.sql": "262fcc23b819b2e99e4748f2cf53fbb7c393c39575917ade74c2e09346d4487f",
+    "scripts/bronze/proc_load_bronze.sql": "d0821da9622a5230f07a540d56b6821207ec3a4f879096ae18969a623317d369",
+    "scripts/gold/ddl_gold.sql": "7c219546a3a9fb8be66fbbba3bb03b84f454775f463e21348fd7c7429b2070d4",
+    "scripts/init_database.sql": "6a2415bb355adbfe5a8a97bb0236fc93e14f9856162e405aa8f255f9f9fdf34d",
+    "scripts/prepare_sources.py": "1dcf2b85ab5916e05acf4d7b3b8fb9bb849c8f3b8056f35b27465b55b109503d",
+    "scripts/reload.sql": "fce3c5f093735b5b63a4e919a0650ccda403289f110201063047ae14896c29f9",
+    "scripts/run_all.sql": "28d2961cb5d09d534ec64f5e0c1c2fa665b95fce417425f18f1d6618e4c930af",
+    "scripts/silver/ddl_silver.sql": "fe4873ceb521a15d8a0bf2cc53068b911d3e9b50d9828b9d01a2e84ed242387e",
+    "scripts/silver/proc_load_silver.sql": "9e22101c3bb8cde177ca507bdcebd5eed90da17af7f92d666543e055317828da",
+    "scripts/verify_pipeline.py": "c29d41c541a8b2c9dc5655f3961e021decc786f77a64396e1e90e4883af4d9a5",
+    "tests/assert_warehouse.sql": "eed04312e5bb63d66127e300685a3a43e13318ea2fda236b7181af9c032e4caa",
+    "tests/profile_data.sql": "e6875e956f9a5468e69da4da7ae35e7dc5529919bf7a5f2ab4893270fe88b05e",
+    "tests/quality_checks_bronze.sql": "d6f4cc140a8d5f94cc53f77088b4c8cdfa38fd788e496832f4ab65ff740ea86c",
+    "tests/quality_checks_gold.sql": "7c059bd1ca07227e4ff53ac70cdda42f4119d5e47cdddaa97fbecf9aecc3548c",
+    "tests/quality_checks_silver.sql": "f44fb68b1521f7c909ebda2832d712075abd40d0fc60a2d86be81904a13b2d98",
+    "tests/reload_and_failures.sql": "1f3edc3348889c4f0ac3a85a58e4f959568d8df553998f1c90e65ce99768587d",
+    "tests/source_manifest.json": "6f2ea1735563d2e4f98d85f06fd844ca4cd681cc0a6c567b20cfb5660dbd8764",
+    "README.md": "e8eb5977cf3245d576fac13bca6c410499b19c2b08e38494cc39e01f9d864d14"
+  },
+  "base_commit": "7631992499a7b3f3bcb3a94992cb6671a17fc064",
+  "container_removed": true,
+  "finished_at_utc": "2026-10-15T23:30:12.165388+00:00",
+  "evidence_sha256": {
+    "01_initial_load.txt": "5ba7505dcd17090b66b07a45d0aa5cce4723017af0eb52a1baa41b09fac7a1d2",
+    "02_before_after.txt": "e0cdf36969f5f7a4ffd1aae0eadcee3c08788e3527f89555cfbdab9b1eb06d7e",
+    "03_tutorial_silver_diagnostics.txt": "dff8504e1c236da289e81a49fb6c6d467405b8127147e327d0ae546bb7a871d8",
+    "04_tutorial_gold_checks.txt": "fdec96e06b7895381555f1bdf4d7a666e3616cd14ae9ae9f12b50f3c3aed4d8f",
+    "05_reload_and_rollback.txt": "d71f74f6ee2474db171b463890f3a06e4d945059b5d4c3878215e1b274d44e71",
+    "06_existing_database_guard.txt": "d57a409f9787c8f9cae045474753a7b03b1d05d838a5e36c0bcc3c20f3eca741",
+    "07_empty_table_rejected.txt": "da302b22196c14aaaa4f904172a6424c10b2cda9c56839b9ce8fb983188ae1f4",
+    "08_final_acceptance.txt": "0f4b78714f595a3d2d3c45993a1bc315867af4cface0e77a4a3cd1d5882529f6",
+    "09_documented_reload.txt": "663d997a8cf3e988889db03c0b9062be39c84c77e4e929caa8cf45fb0520b9b8",
+    "server_version.txt": "5fef98559e3095dd78cb13cbce2f4a0aab3a34fe4f55303382e130a18488513a"
+  }
+}

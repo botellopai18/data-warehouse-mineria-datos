@@ -1,0 +1,76 @@
+[
+  {
+    "path": "datasets/source_crm/cust_info.csv",
+    "sha256": "5e00eca4351886386f6dd01beea91cb17ff081b97b9a02d295b84505448c8040",
+    "columns": [
+      "cst_id",
+      "cst_key",
+      "cst_firstname",
+      "cst_lastname",
+      "cst_marital_status",
+      "cst_gndr",
+      "cst_create_date"
+    ],
+    "rows": 18494
+  },
+  {
+    "path": "datasets/source_crm/prd_info.csv",
+    "sha256": "3db1d644b424aa42599c5a00a8b1297b7b099367c180a63b141f91efac0de45b",
+    "columns": [
+      "prd_id",
+      "prd_key",
+      "prd_nm",
+      "prd_cost",
+      "prd_line",
+      "prd_start_dt",
+      "prd_end_dt"
+    ],
+    "rows": 397
+  },
+  {
+    "path": "datasets/source_crm/sales_details.csv",
+    "sha256": "0a1e565ae2e8accec217819226d7b71104cc6075590172ed855617a8930a4369",
+    "columns": [
+      "sls_ord_num",
+      "sls_prd_key",
+      "sls_cust_id",
+      "sls_order_dt",
+      "sls_ship_dt",
+      "sls_due_dt",
+      "sls_sales",
+      "sls_quantity",
+      "sls_price"
+    ],
+    "rows": 60398
+  },
+  {
+    "path": "datasets/source_erp/CUST_AZ12.csv",
+    "sha256": "31b697a6a6022085e2f0b1a4d8fe55faae57a54a2d0c8ff91534253b8f3e64a0",
+    "columns": [
+      "CID",
+      "BDATE",
+      "GEN"
+    ],
+    "rows": 18484
+  },
+  {
+    "path": "datasets/source_erp/LOC_A101.csv",
+    "sha256": "d46239d31bfa3a78e8a6cc8ee97a51e914b2db2db460bfb79a3aeadaf8e028c0",
+    "columns": [
+      "CID",
+      "CNTRY"
+    ],
+    "rows": 18484
+  },
+  {
+    "path": "datasets/source_erp/PX_CAT_G1V2.csv",
+    "sha256": "ef8048319a2cc23907fc6caf215d31cca5e0bf908590fd6bd7dfa81b48ac9743",
+    "columns": [
+      "ID",
+      "CAT",
+      "SUBCAT",
+      "MAINTENANCE"
+    ],
+    "rows": 37
+  }
+]

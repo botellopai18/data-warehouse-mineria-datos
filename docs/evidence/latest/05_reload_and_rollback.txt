@@ -1,0 +1,289 @@
+================================================
+Loading Bronze Layer
+================================================
+------------------------------------------------
+Loading CRM Tables
+------------------------------------------------
+>> Truncating Table: bronze.crm_cust_info
+>> Inserting Data Into: bronze.crm_cust_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.crm_prd_info
+>> Inserting Data Into: bronze.crm_prd_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.crm_sales_details
+>> Inserting Data Into: bronze.crm_sales_details
+>> Load Duration: 0 seconds
+>> -------------
+------------------------------------------------
+Loading ERP Tables
+------------------------------------------------
+>> Truncating Table: bronze.erp_loc_a101
+>> Inserting Data Into: bronze.erp_loc_a101
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.erp_cust_az12
+>> Inserting Data Into: bronze.erp_cust_az12
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.erp_px_cat_g1v2
+>> Inserting Data Into: bronze.erp_px_cat_g1v2
+>> Load Duration: 0 seconds
+>> -------------
+==========================================
+Loading Bronze Layer is Completed
+   - Total Load Duration: 0 seconds
+==========================================
+================================================
+Loading Silver Layer
+================================================
+------------------------------------------------
+Loading CRM Tables
+------------------------------------------------
+>> Truncating Table: silver.crm_cust_info
+>> Inserting Data Into: silver.crm_cust_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.crm_prd_info
+>> Inserting Data Into: silver.crm_prd_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.crm_sales_details
+>> Inserting Data Into: silver.crm_sales_details
+>> Load Duration: 0 seconds
+>> -------------
+------------------------------------------------
+Loading ERP Tables
+------------------------------------------------
+>> Truncating Table: silver.erp_cust_az12
+>> Inserting Data Into: silver.erp_cust_az12
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.erp_loc_a101
+>> Inserting Data Into: silver.erp_loc_a101
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.erp_px_cat_g1v2
+>> Inserting Data Into: silver.erp_px_cat_g1v2
+>> Load Duration: 0 seconds
+>> -------------
+==========================================
+Loading Silver Layer is Completed
+   - Total Load Duration: 0 seconds
+==========================================
+PASS reload: identical ordered row hashes across all 15 objects.
+================================================
+Loading Bronze Layer
+================================================
+------------------------------------------------
+Loading CRM Tables
+------------------------------------------------
+>> Truncating Table: bronze.crm_cust_info
+>> Inserting Data Into: bronze.crm_cust_info
+==========================================
+ERROR OCCURRED DURING LOADING BRONZE LAYER
+Error Message: Cannot bulk load. The file "/__dwh_missing_directory__/datasets/source_crm/cust_info.csv" does not exist or you don't have file access rights. See https://go.microsoft.com/fwlink/?LinkId=2374938 for more information.
+Error Number: 4860
+Error State: 1
+==========================================
+PASS Bronze failure: missing CSV error propagated; all rows restored.
+================================================
+Loading Silver Layer
+================================================
+------------------------------------------------
+Loading CRM Tables
+------------------------------------------------
+>> Truncating Table: silver.crm_cust_info
+>> Inserting Data Into: silver.crm_cust_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.crm_prd_info
+>> Inserting Data Into: silver.crm_prd_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: silver.crm_sales_details
+>> Inserting Data Into: silver.crm_sales_details
+==========================================
+ERROR OCCURRED DURING LOADING SILVER LAYER
+Error Message: Conversion failed when converting date and/or time from character string.
+Error Number: 241
+Error State: 1
+==========================================
+PASS Silver failure: conversion error propagated; all rows and timestamps restored.
+phase                          object_name                                                                                                                                                                                                      
+                                                    rows_count           sha256                                                          
+------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------- -------------------- ----------------------------------------------------------------
+before_failure                 [bronze].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18494 4F5D47FA148AD2B45D093CCA8A8B9FBACCE19C2DC985CFA47E8030FB960B2893
+before_failure                 [bronze].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 5AF62A97714A7B1E3FA1EC79507A603DF5AD86BBEE6F535E64989BB3EF8C7061
+before_failure                 [bronze].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 76712998FEC0ECA18F434C2428144AB8B69CB7B8EE804A140916493A88BCD31F
+before_failure                 [bronze].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 B7FD443A4AF237CA222160F3D16729C340F8BE0125177813DE5DAA2800460322
+before_failure                 [bronze].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 03BAEBF86EC15969E177DD522B6589939542C1D750D1030B4A502D4CF143AD8B
+before_failure                 [bronze].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+before_failure                 [gold].[dim_customers]                                                                                                                                                                                           
+                                                                   18484 7D0292E7780A0CE942780ED2E58EEE00C56B017589D79A41E3879A8E75DFFD17
+before_failure                 [gold].[dim_products]                                                                                                                                                                                            
+                                                                     295 A0FFF79FC5AE3F509CFCAE1752167EC3F2AC571E87C6873AFEE809A243186407
+before_failure                 [gold].[fact_sales]                                                                                                                                                                                              
+                                                                   60398 917AA9DCCD328256815B10846218285DF702610ADAC128EA7EDD53BF704DEB45
+before_failure                 [silver].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18484 9D1C248A056F485DEE38969810D05675F1352CCB09F72BD9B5CE0EEEB374E507
+before_failure                 [silver].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 DF6E147C4D49E3F8E52294340064A5C1294D9983D60F58F39F78180D87C25180
+before_failure                 [silver].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 482912511345B2CC9A080F0ED5AFA59C6A3F883D643F315F90FE361D0283F764
+before_failure                 [silver].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 4E6DA043EB572A0CC91F2622B2109EF5825DAE8E6ADC2B5484C2AAE18D096071
+before_failure                 [silver].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 97F1B51F41904567FA817617F0C80775441D9E223CCF053A21192CC6092F1794
+before_failure                 [silver].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 A56CAD22A73329E27A30365E87017665C6FA3252CFB2208E73D093AFCE358460
+bronze_rollback                [bronze].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18494 4F5D47FA148AD2B45D093CCA8A8B9FBACCE19C2DC985CFA47E8030FB960B2893
+bronze_rollback                [bronze].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 5AF62A97714A7B1E3FA1EC79507A603DF5AD86BBEE6F535E64989BB3EF8C7061
+bronze_rollback                [bronze].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 76712998FEC0ECA18F434C2428144AB8B69CB7B8EE804A140916493A88BCD31F
+bronze_rollback                [bronze].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 B7FD443A4AF237CA222160F3D16729C340F8BE0125177813DE5DAA2800460322
+bronze_rollback                [bronze].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 03BAEBF86EC15969E177DD522B6589939542C1D750D1030B4A502D4CF143AD8B
+bronze_rollback                [bronze].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+bronze_rollback                [gold].[dim_customers]                                                                                                                                                                                           
+                                                                   18484 7D0292E7780A0CE942780ED2E58EEE00C56B017589D79A41E3879A8E75DFFD17
+bronze_rollback                [gold].[dim_products]                                                                                                                                                                                            
+                                                                     295 A0FFF79FC5AE3F509CFCAE1752167EC3F2AC571E87C6873AFEE809A243186407
+bronze_rollback                [gold].[fact_sales]                                                                                                                                                                                              
+                                                                   60398 917AA9DCCD328256815B10846218285DF702610ADAC128EA7EDD53BF704DEB45
+bronze_rollback                [silver].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18484 9D1C248A056F485DEE38969810D05675F1352CCB09F72BD9B5CE0EEEB374E507
+bronze_rollback                [silver].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 DF6E147C4D49E3F8E52294340064A5C1294D9983D60F58F39F78180D87C25180
+bronze_rollback                [silver].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 482912511345B2CC9A080F0ED5AFA59C6A3F883D643F315F90FE361D0283F764
+bronze_rollback                [silver].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 4E6DA043EB572A0CC91F2622B2109EF5825DAE8E6ADC2B5484C2AAE18D096071
+bronze_rollback                [silver].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 97F1B51F41904567FA817617F0C80775441D9E223CCF053A21192CC6092F1794
+bronze_rollback                [silver].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 A56CAD22A73329E27A30365E87017665C6FA3252CFB2208E73D093AFCE358460
+initial                        [bronze].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18494 4F5D47FA148AD2B45D093CCA8A8B9FBACCE19C2DC985CFA47E8030FB960B2893
+initial                        [bronze].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 5AF62A97714A7B1E3FA1EC79507A603DF5AD86BBEE6F535E64989BB3EF8C7061
+initial                        [bronze].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 76712998FEC0ECA18F434C2428144AB8B69CB7B8EE804A140916493A88BCD31F
+initial                        [bronze].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 B7FD443A4AF237CA222160F3D16729C340F8BE0125177813DE5DAA2800460322
+initial                        [bronze].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 03BAEBF86EC15969E177DD522B6589939542C1D750D1030B4A502D4CF143AD8B
+initial                        [bronze].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+initial                        [gold].[dim_customers]                                                                                                                                                                                           
+                                                                   18484 7D0292E7780A0CE942780ED2E58EEE00C56B017589D79A41E3879A8E75DFFD17
+initial                        [gold].[dim_products]                                                                                                                                                                                            
+                                                                     295 A0FFF79FC5AE3F509CFCAE1752167EC3F2AC571E87C6873AFEE809A243186407
+initial                        [gold].[fact_sales]                                                                                                                                                                                              
+                                                                   60398 917AA9DCCD328256815B10846218285DF702610ADAC128EA7EDD53BF704DEB45
+initial                        [silver].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18484 59920BDA04373E0E251CE0E85F7BD8046D9850D55ADD3BD429B00CA7FC8C605F
+initial                        [silver].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 B06E45CE451010AB04857CDE88E5B2E70E20D94A7AFA833C6C2935BAF52F843D
+initial                        [silver].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 33EBC0681253C00550AEBF9B6575E203E270C5E1A6FD6921292186A899C1030B
+initial                        [silver].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 9D4BB75D945A2172C082D131477EDE2289D2D8A94187F92D7E32002B6EAF7087
+initial                        [silver].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 08F7DF89DFC8F69AFEF64DAB09470CC2402EAF93F66EB50226538A6046A3CA9D
+initial                        [silver].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+reloaded                       [bronze].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18494 4F5D47FA148AD2B45D093CCA8A8B9FBACCE19C2DC985CFA47E8030FB960B2893
+reloaded                       [bronze].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 5AF62A97714A7B1E3FA1EC79507A603DF5AD86BBEE6F535E64989BB3EF8C7061
+reloaded                       [bronze].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 76712998FEC0ECA18F434C2428144AB8B69CB7B8EE804A140916493A88BCD31F
+reloaded                       [bronze].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 B7FD443A4AF237CA222160F3D16729C340F8BE0125177813DE5DAA2800460322
+reloaded                       [bronze].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 03BAEBF86EC15969E177DD522B6589939542C1D750D1030B4A502D4CF143AD8B
+reloaded                       [bronze].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+reloaded                       [gold].[dim_customers]                                                                                                                                                                                           
+                                                                   18484 7D0292E7780A0CE942780ED2E58EEE00C56B017589D79A41E3879A8E75DFFD17
+reloaded                       [gold].[dim_products]                                                                                                                                                                                            
+                                                                     295 A0FFF79FC5AE3F509CFCAE1752167EC3F2AC571E87C6873AFEE809A243186407
+reloaded                       [gold].[fact_sales]                                                                                                                                                                                              
+                                                                   60398 917AA9DCCD328256815B10846218285DF702610ADAC128EA7EDD53BF704DEB45
+reloaded                       [silver].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18484 59920BDA04373E0E251CE0E85F7BD8046D9850D55ADD3BD429B00CA7FC8C605F
+reloaded                       [silver].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 B06E45CE451010AB04857CDE88E5B2E70E20D94A7AFA833C6C2935BAF52F843D
+reloaded                       [silver].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 33EBC0681253C00550AEBF9B6575E203E270C5E1A6FD6921292186A899C1030B
+reloaded                       [silver].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 9D4BB75D945A2172C082D131477EDE2289D2D8A94187F92D7E32002B6EAF7087
+reloaded                       [silver].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 08F7DF89DFC8F69AFEF64DAB09470CC2402EAF93F66EB50226538A6046A3CA9D
+reloaded                       [silver].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+silver_rollback                [bronze].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18494 4F5D47FA148AD2B45D093CCA8A8B9FBACCE19C2DC985CFA47E8030FB960B2893
+silver_rollback                [bronze].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 5AF62A97714A7B1E3FA1EC79507A603DF5AD86BBEE6F535E64989BB3EF8C7061
+silver_rollback                [bronze].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 76712998FEC0ECA18F434C2428144AB8B69CB7B8EE804A140916493A88BCD31F
+silver_rollback                [bronze].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 B7FD443A4AF237CA222160F3D16729C340F8BE0125177813DE5DAA2800460322
+silver_rollback                [bronze].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 03BAEBF86EC15969E177DD522B6589939542C1D750D1030B4A502D4CF143AD8B
+silver_rollback                [bronze].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 F1F4A3C36C902563A70EF23AD239453793FE4AD3F5E991531E46EE38C1D19DD2
+silver_rollback                [gold].[dim_customers]                                                                                                                                                                                           
+                                                                   18484 7D0292E7780A0CE942780ED2E58EEE00C56B017589D79A41E3879A8E75DFFD17
+silver_rollback                [gold].[dim_products]                                                                                                                                                                                            
+                                                                     295 A0FFF79FC5AE3F509CFCAE1752167EC3F2AC571E87C6873AFEE809A243186407
+silver_rollback                [gold].[fact_sales]                                                                                                                                                                                              
+                                                                   60398 917AA9DCCD328256815B10846218285DF702610ADAC128EA7EDD53BF704DEB45
+silver_rollback                [silver].[crm_cust_info]                                                                                                                                                                                         
+                                                                   18484 9D1C248A056F485DEE38969810D05675F1352CCB09F72BD9B5CE0EEEB374E507
+silver_rollback                [silver].[crm_prd_info]                                                                                                                                                                                          
+                                                                     397 DF6E147C4D49E3F8E52294340064A5C1294D9983D60F58F39F78180D87C25180
+silver_rollback                [silver].[crm_sales_details]                                                                                                                                                                                     
+                                                                   60398 482912511345B2CC9A080F0ED5AFA59C6A3F883D643F315F90FE361D0283F764
+silver_rollback                [silver].[erp_cust_az12]                                                                                                                                                                                         
+                                                                   18484 4E6DA043EB572A0CC91F2622B2109EF5825DAE8E6ADC2B5484C2AAE18D096071
+silver_rollback                [silver].[erp_loc_a101]                                                                                                                                                                                          
+                                                                   18484 97F1B51F41904567FA817617F0C80775441D9E223CCF053A21192CC6092F1794
+silver_rollback                [silver].[erp_px_cat_g1v2]                                                                                                                                                                                       
+                                                                      37 A56CAD22A73329E27A30365E87017665C6FA3252CFB2208E73D093AFCE358460
+Warning: Null value is eliminated by an aggregate or other SET operation.
+PASS Bronze: six source counts, raw identifiers and date schema.
+source_file                                                                                          expected_rows        actual_rows         
+---------------------------------------------------------------------------------------------------- -------------------- --------------------
+CRM/cust_info.csv                                                                                                   18494                18494
+CRM/prd_info.csv                                                                                                      397                  397
+CRM/sales_details.csv                                                                                               60398                60398
+ERP/CUST_AZ12.csv                                                                                                   18484                18484
+ERP/LOC_A101.csv                                                                                                    18484                18484
+ERP/PX_CAT_G1V2.csv                                                                                                    37                   37
+PASS Silver/Gold: counts, deduplication, normalization, amounts, keys and integration.
+object_name                                                                                          expected_rows        actual_rows         
+---------------------------------------------------------------------------------------------------- -------------------- --------------------
+gold.dim_customers                                                                                                  18484                18484
+gold.dim_products                                                                                                     295                  295
+gold.fact_sales                                                                                                     60398                60398
+silver.crm_cust_info                                                                                                18484                18484
+silver.crm_prd_info                                                                                                   397                  397
+silver.crm_sales_details                                                                                            60398                60398
+silver.erp_cust_az12                                                                                                18484                18484
+silver.erp_loc_a101                                                                                                 18484                18484
+silver.erp_px_cat_g1v2                                                                                                 37                   37

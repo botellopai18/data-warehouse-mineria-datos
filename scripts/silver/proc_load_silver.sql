@@ -20,8 +20,11 @@ Usage Example:
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
+    SET NOCOUNT ON;
+    SET XACT_ABORT ON;
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
     BEGIN TRY
+        BEGIN TRANSACTION;
         SET @batch_start_time = GETDATE();
         PRINT '================================================';
         PRINT 'Loading Silver Layer';
@@ -235,6 +238,7 @@ BEGIN
         PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) + ' seconds';
         PRINT '>> -------------';
 
+        COMMIT TRANSACTION;
         SET @batch_end_time = GETDATE();
         PRINT '=========================================='
         PRINT 'Loading Silver Layer is Completed';
@@ -243,11 +247,14 @@ BEGIN
 
     END TRY
     BEGIN CATCH
+        IF XACT_STATE() <> 0 ROLLBACK TRANSACTION;
         PRINT '=========================================='
         PRINT 'ERROR OCCURRED DURING LOADING SILVER LAYER'
         PRINT 'Error Message: ' + ERROR_MESSAGE();
         PRINT 'Error Number: ' + CAST (ERROR_NUMBER() AS NVARCHAR);
         PRINT 'Error State: ' + CAST (ERROR_STATE() AS NVARCHAR);
         PRINT '=========================================='
+        ;THROW;
     END CATCH
-END
+END;
+GO

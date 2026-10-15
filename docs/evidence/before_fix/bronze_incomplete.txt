@@ -1,0 +1,50 @@
+Changed database context to 'master'.
+Changed database context to 'master'.
+Changed database context to 'DataWarehouse'.
+================================================
+Loading Bronze Layer
+================================================
+------------------------------------------------
+Loading CRM Tables
+------------------------------------------------
+>> Truncating Table: bronze.crm_cust_info
+>> Inserting Data Into: bronze.crm_cust_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.crm_prd_info
+>> Inserting Data Into: bronze.crm_prd_info
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.crm_sales_details
+>> Inserting Data Into: bronze.crm_sales_details
+>> Load Duration: 0 seconds
+>> -------------
+------------------------------------------------
+Loading ERP Tables
+------------------------------------------------
+>> Truncating Table: bronze.erp_loc_a101
+>> Inserting Data Into: bronze.erp_loc_a101
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.erp_cust_az12
+>> Inserting Data Into: bronze.erp_cust_az12
+>> Load Duration: 0 seconds
+>> -------------
+>> Truncating Table: bronze.erp_px_cat_g1v2
+>> Inserting Data Into: bronze.erp_px_cat_g1v2
+>> Load Duration: 0 seconds
+>> -------------
+==========================================
+Loading Bronze Layer is Completed
+   - Total Load Duration: 0 seconds
+==========================================
+Msg 51001, Level 16, State 1, Server fd48203efbf9, Line 15
+FAIL Bronze: CSV/SQL row count mismatch.
+source_file                                                                                          expected_rows        actual_rows         
+---------------------------------------------------------------------------------------------------- -------------------- --------------------
+CRM/cust_info.csv                                                                                                   18494                18493
+CRM/prd_info.csv                                                                                                      397                  397
+CRM/sales_details.csv                                                                                               60398                60398
+ERP/CUST_AZ12.csv                                                                                                   18484                18483
+ERP/LOC_A101.csv                                                                                                    18484                18484
+ERP/PX_CAT_G1V2.csv                                                                                                    37                   37

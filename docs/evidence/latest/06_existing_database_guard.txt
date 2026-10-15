@@ -1,0 +1,3 @@
+Changed database context to 'master'.
+Msg 51000, Level 16, State 1, Server c103754fb211, Line 2
+DataWarehouse already exists. Use scripts/reload.sql to reload it without recreating the database.

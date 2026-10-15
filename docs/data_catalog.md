@@ -8,7 +8,7 @@ Está formada por **dimensiones** y **tablas de hechos** (implementadas como vis
 
 | Columna          | Tipo          | Descripción |
 |------------------|---------------|-------------|
-| customer_key     | INT           | Llave sustituta que identifica cada cliente en la dimensión. |
+| customer_key     | BIGINT           | Llave sustituta que identifica cada cliente en la dimensión. |
 | customer_id      | INT           | Identificador numérico del cliente en el CRM. |
 | customer_number  | NVARCHAR(50)  | Identificador alfanumérico del cliente (p. ej. `AW00011000`). |
 | first_name       | NVARCHAR(50)  | Nombre del cliente. |
@@ -24,7 +24,7 @@ Está formada por **dimensiones** y **tablas de hechos** (implementadas como vis
 
 | Columna        | Tipo          | Descripción |
 |----------------|---------------|-------------|
-| product_key    | INT           | Llave sustituta del producto. |
+| product_key    | BIGINT           | Llave sustituta del producto. |
 | product_id     | INT           | Identificador interno del producto. |
 | product_number | NVARCHAR(50)  | Código alfanumérico del producto (p. ej. `FR-R92B-58`). |
 | product_name   | NVARCHAR(50)  | Nombre descriptivo (tipo, color, talla). |
@@ -42,8 +42,8 @@ Está formada por **dimensiones** y **tablas de hechos** (implementadas como vis
 | Columna       | Tipo          | Descripción |
 |---------------|---------------|-------------|
 | order_number  | NVARCHAR(50)  | Número de orden (p. ej. `SO54496`). |
-| product_key   | INT           | Llave sustituta hacia `dim_products`. |
-| customer_key  | INT           | Llave sustituta hacia `dim_customers`. |
+| product_key   | BIGINT           | Llave sustituta hacia `dim_products`. |
+| customer_key  | BIGINT           | Llave sustituta hacia `dim_customers`. |
 | order_date    | DATE          | Fecha de la orden. |
 | shipping_date | DATE          | Fecha de envío. |
 | due_date      | DATE          | Fecha de vencimiento del pago. |
