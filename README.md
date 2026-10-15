@@ -93,6 +93,8 @@ data-warehouse-mineria-datos/
 
 ## Créditos
 
+Las respuestas del cuestionario de la práctica están en [`docs/cuestionario_respuestas.pdf`](docs/cuestionario_respuestas.pdf).
+
 Proyecto basado en *SQL Data Warehouse from Scratch* de Baraa Khatib Salkini (Data with Baraa),
 [repositorio original](https://github.com/DataWithBaraa/sql-data-warehouse-project) bajo licencia MIT.
 Los datasets provienen de ese repositorio.
